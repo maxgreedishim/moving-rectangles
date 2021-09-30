@@ -22,7 +22,7 @@ class Vector {
         this.currentPoint = currentPoint;
     }
 
-    void toggleV() {
+   void toggleV() {
          if (dirV == DirectionsV.DOWN) dirV = DirectionsV.UP;
          else dirV = DirectionsV.DOWN;
     }
@@ -32,10 +32,12 @@ class Vector {
         else dirH = DirectionsH.RIGHT;
     }
 
+
     Point nextStep(){
         currentPoint.x += (dirH == DirectionsH.RIGHT ? speedH : speedH * -1 );
         currentPoint.y += (dirV == DirectionsV.DOWN ? speedV : speedV * -1 );
 
         return currentPoint;
     }
+
 }

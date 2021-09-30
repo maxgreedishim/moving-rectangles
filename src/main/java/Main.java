@@ -8,12 +8,29 @@ public class Main {
     private final static String title = "Движущие прямоугольники";
     private final static int width = 1024;
     private final static int height = 640;
+    private static int trafficFig0X;
+    private static int trafficFig0Y;
+    private static int trafficFig1X;
+    private static int trafficFig1Y;
     static int getWidth() {
         return width;
     }
     static int getHeight() {
         return height;
     }
+    static int getTrafficFig0X() {
+        return trafficFig0X;
+    }
+    static int getTrafficFig0Y() {
+        return trafficFig0Y;
+    }
+    static int getTrafficFig1X() {
+        return trafficFig1X;
+    }
+    static int getTrafficFig1Y() {
+        return trafficFig1Y;
+    }
+
     public static void main(String[] args) {
         JFrame frame = new JFrame(title);
         frame.setSize(width, height);
@@ -28,11 +45,18 @@ public class Main {
         BufferStrategy bufferStrategy;
         Graphics graphics;
         List <Rectangle> rectangleList = new ArrayList<>();
-        rectangleList.add(new Rectangle(new Point(500,20),50,50));
-        rectangleList.add(new Rectangle(new Point(0,500),150,50));
-        rectangleList.add(new Rectangle(new Point(800,200),50,50));
+        /*Rectangle rectangle = new Rectangle(new Point(0,0),50,50);
+        rectangleList.add(rectangle);*/
+        rectangleList.add(new Rectangle(new Point(0,100),50,50));
+        rectangleList.add(new Rectangle(new Point(100,0),50,50));
+       /* rectangleList.add(new Rectangle(new Point(100,50),50,50));
+        rectangleList.add(new Rectangle(new Point(250,80),50,50));*/
 
         while (true) {
+            trafficFig0X = rectangleList.get(0).getX();
+            trafficFig0Y = rectangleList.get(0).getY();
+            trafficFig1X = rectangleList.get(1).getX();
+            trafficFig1Y = rectangleList.get(1).getY();
             bufferStrategy = canvas.getBufferStrategy();
             graphics = bufferStrategy.getDrawGraphics();
             graphics.clearRect(0, 0, width, height);
@@ -41,6 +65,12 @@ public class Main {
                     rect.getY(), rect.getWidth(),rect.getHeight());
             bufferStrategy.show();
             graphics.dispose();
+            try {
+                Thread.sleep(30);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
         }
     }
 }

@@ -11,7 +11,7 @@ public class Rectangle implements Runnable {
         this.height = height;
         this.width = width;
         this.currentPoint = startPoint;
-        this.vector = new Vector(DirectionsV.DOWN, DirectionsH.RIGHT, 1, 1, startPoint);
+        this.vector = new Vector(DirectionsV.DOWN, DirectionsH.RIGHT, 2, 2, startPoint);
         new Thread(this).start();
     }
 
@@ -45,13 +45,18 @@ public class Rectangle implements Runnable {
                     currentPoint.y <= 0 ) vector.toggleV();
             else if (currentPoint.x > fieldWalls.getWidth()||
                     currentPoint.x <= 0) vector.toggleH();
-
+            System.out.println("Объект0 "+ "X= " + Main.getTrafficFig0X() + " " + " Y= " + Main.getTrafficFig0Y() );
+            System.out.println("Объект1 "+ "X= " + Main.getTrafficFig1X() + " " + " Y= " + Main.getTrafficFig0X() );
+            if (Main.getTrafficFig0Y() == Main.getTrafficFig1Y()  &&
+                    Main.getTrafficFig0X() == Main.getTrafficFig1X() ) {
+                System.out.println("СТОЛКНОВЕНИЕ СТОЛКНОВЕНИЕ!!!");
+                vector.toggleV();
+            }
             try {
-                Thread.sleep(5);
+                Thread.sleep(30);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
-
     }
 }

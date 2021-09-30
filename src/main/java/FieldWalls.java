@@ -4,7 +4,6 @@ class FieldWalls {
     private int errorW = 17;
     private int errorH = 38;
 
-
     public int getWidth() {
         return width;
     }
@@ -14,7 +13,6 @@ class FieldWalls {
     }
 
     public FieldWalls() {
-
         width = Main.getWidth() - Rectangle.getWidth() - errorW;
         height = Main.getHeight() - Rectangle.getHeight() - errorH;
     }

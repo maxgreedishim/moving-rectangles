@@ -8,6 +8,12 @@ public class Main {
     private final static String title = "Движущие прямоугольники";
     private final static int width = 1024;
     private final static int height = 640;
+    static int getWidth() {
+        return width;
+    }
+    static int getHeight() {
+        return height;
+    }
     public static void main(String[] args) {
         JFrame frame = new JFrame(title);
         frame.setSize(width, height);
@@ -22,9 +28,10 @@ public class Main {
         BufferStrategy bufferStrategy;
         Graphics graphics;
         List <Rectangle> rectangleList = new ArrayList<>();
-        Rectangle testRect = new Rectangle(new Point(0,0),100,100);
-        rectangleList.add(new Rectangle(new Point(100,0),50,50));
-        rectangleList.add(testRect);
+        rectangleList.add(new Rectangle(new Point(500,20),50,50));
+        rectangleList.add(new Rectangle(new Point(0,500),150,50));
+        rectangleList.add(new Rectangle(new Point(800,200),50,50));
+
         while (true) {
             bufferStrategy = canvas.getBufferStrategy();
             graphics = bufferStrategy.getDrawGraphics();

@@ -35,6 +35,7 @@ class Vector {
     Point nextStep(){
         currentPoint.x += (dirH == DirectionsH.RIGHT ? speedH : speedH * -1 );
         currentPoint.y += (dirV == DirectionsV.DOWN ? speedV : speedV * -1 );
+
         return currentPoint;
     }
 }

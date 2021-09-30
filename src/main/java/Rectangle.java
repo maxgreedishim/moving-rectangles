@@ -1,44 +1,53 @@
 import java.awt.Graphics;
 
-class Rectangle implements Runnable {
+public class Rectangle implements Runnable {
     private Vector vector;
     private Point currentPoint;
-    private int width;
-    private int height;
+    private static int width;
+    private static int height;
     private Graphics graphics;
 
     Rectangle(Point startPoint, int width, int height) {
         this.height = height;
-        this.currentPoint = startPoint;
         this.width = width;
-        this.vector = new Vector(DirectionsV.DOWN, DirectionsH.RIGHT, 2, 3, startPoint);
+        this.currentPoint = startPoint;
+        this.vector = new Vector(DirectionsV.DOWN, DirectionsH.RIGHT, 1, 1, startPoint);
         new Thread(this).start();
     }
+
+
     void setGraphics (Graphics graphics){
         this.graphics = graphics;
     }
-    int getWidth() {
+    static int getWidth() {
         return width;
     }
-    int getHeight() {
+    static int getHeight() {
         return height;
     }
     int getX() {
         return currentPoint.x;
     }
     int getY() {
+
         return currentPoint.y;
     }
 
     @Override
     public void run() {
 
-        for (int i = 0; i < 50 ; i++){
+        for (; ;){
             System.out.println("x = " + currentPoint.x + " y = " + currentPoint.y);
             Point next = this.vector.nextStep();
             currentPoint = next;
+            FieldWalls fieldWalls = new FieldWalls();
+            if (currentPoint.y > fieldWalls.getHeight() ||
+                    currentPoint.y <= 0 ) vector.toggleV();
+            else if (currentPoint.x > fieldWalls.getWidth()||
+                    currentPoint.x <= 0) vector.toggleH();
+
             try {
-                Thread.sleep(100);
+                Thread.sleep(5);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

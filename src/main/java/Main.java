@@ -13,9 +13,11 @@ public class Main {
     private static int trafficFig1X;
     private static int trafficFig1Y;
     static int getWidth() {
+
         return width;
     }
     static int getHeight() {
+
         return height;
     }
     static int getTrafficFig0X() {
@@ -47,8 +49,10 @@ public class Main {
         List <Rectangle> rectangleList = new ArrayList<>();
         /*Rectangle rectangle = new Rectangle(new Point(0,0),50,50);
         rectangleList.add(rectangle);*/
-        rectangleList.add(new Rectangle(new Point(0,100),50,50));
-        rectangleList.add(new Rectangle(new Point(100,0),50,50));
+        rectangleList.add(new Rectangle(new Point(550,190),50,50));
+        rectangleList.add(new Rectangle(new Point(750,300),50,50));
+        rectangleList.add(new Rectangle(new Point(50,150),50,50));
+        rectangleList.add(new Rectangle(new Point(950,200),50,50));
        /* rectangleList.add(new Rectangle(new Point(100,50),50,50));
         rectangleList.add(new Rectangle(new Point(250,80),50,50));*/
 
@@ -66,11 +70,10 @@ public class Main {
             bufferStrategy.show();
             graphics.dispose();
             try {
-                Thread.sleep(30);
+                Thread.sleep(50);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
         }
     }
 }

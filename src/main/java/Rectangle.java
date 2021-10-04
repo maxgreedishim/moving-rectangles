@@ -56,7 +56,7 @@ public class Rectangle implements Runnable {
                 vector.toggleV();
             }
             try {
-                Thread.sleep(30);
+                Thread.sleep(1);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

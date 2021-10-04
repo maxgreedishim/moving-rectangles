@@ -70,7 +70,7 @@ public class Main {
             bufferStrategy.show();
             graphics.dispose();
             try {
-                Thread.sleep(50);
+                Thread.sleep(1);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

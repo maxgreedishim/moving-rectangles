@@ -5,13 +5,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    private final static String title = "Движущие прямоугольники";
+    private static String title = "Движущие прямоугольники";
     private final static int width = 1024;
     private final static int height = 640;
     private static int trafficFig0X;
     private static int trafficFig0Y;
     private static int trafficFig1X;
     private static int trafficFig1Y;
+    static {
+        title = "moving rect";
+    }
     static int getWidth() {
 
         return width;

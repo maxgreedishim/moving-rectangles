@@ -22,6 +22,8 @@ class Vector {
         this.currentPoint = currentPoint;
     }
 
+
+
    void toggleV() {
          if (dirV == DirectionsV.DOWN) dirV = DirectionsV.UP;
          else dirV = DirectionsV.DOWN;

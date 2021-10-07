@@ -15,7 +15,6 @@ public class Rectangle implements Runnable {
         new Thread(this).start();
     }
 
-
     void setGraphics (Graphics graphics){
 
         this.graphics = graphics;
@@ -29,6 +28,7 @@ public class Rectangle implements Runnable {
         return height;
     }
     int getX() {
+
         return currentPoint.x;
     }
     int getY() {
@@ -48,13 +48,6 @@ public class Rectangle implements Runnable {
                     currentPoint.y <= 0 ) vector.toggleV();
             else if (currentPoint.x >= fieldWalls.getWidth()||
                     currentPoint.x <= 0) vector.toggleH();
-            System.out.println("Объект0 "+ "X= " + Main.getTrafficFig0X() + " " + " Y= " + Main.getTrafficFig0Y() );
-            System.out.println("Объект1 "+ "X= " + Main.getTrafficFig1X() + " " + " Y= " + Main.getTrafficFig1Y() );
-            if (Main.getTrafficFig0Y() == Main.getTrafficFig1Y()  &&
-                    Main.getTrafficFig0X() == Main.getTrafficFig1X() ) {
-                System.out.println("СТОЛКНОВЕНИЕ СТОЛКНОВЕНИЕ!!!");
-                vector.toggleV();
-            }
             try {
                 Thread.sleep(1);
             } catch (InterruptedException e) {
